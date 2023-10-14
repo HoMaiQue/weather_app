@@ -1,0 +1,29 @@
+overwrite: true
+schema: 
+  - ./stepzen/curl/index.graphql
+config:
+  namingConvention:
+    enumValues: keep
+  preResolveTypes: true
+  skipTypename: true
+  content: "/* eslint-disable */\n\n // ⚠️⚠️⚠️⚠️⚠️\n // This file was automatically generated and should not be edited.\n // ⚠️⚠️⚠️⚠️⚠️\n"
+generates:
+  generated/weather.ts:
+    plugins:
+      - 'typescript'
+      - 'fragment-matcher'
+  generated/introspection.json:
+    plugins:
+      - 'introspection'
+  graphql/: 
+    documents: graphql/**/*.gql.ts
+    presetConfig:
+      baseTypesPath: 'generated/weather.ts'
+    preset: 'near-operation-file'
+    config:
+      documentNode: 'graphQLTag'
+      dedupeFragment: true
+    plugins:
+      - 'add'
+      - 'typescript-operations'
+      - 'typed-document-node'

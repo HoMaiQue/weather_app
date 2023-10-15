@@ -57,6 +57,12 @@ export type CurrentUnits = {
 export type Daily = {
   apparent_temperature_max?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
   apparent_temperature_min?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  precipitation_sum?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  rain_sum?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  showers_sum?: Maybe<Array<Maybe<Scalars['Int']['output']>>>;
+  snowfall_sum?: Maybe<Array<Maybe<Scalars['Int']['output']>>>;
+  sunrise?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  sunset?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   temperature_2m_max?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
   temperature_2m_min?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
   time?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
@@ -68,6 +74,12 @@ export type Daily = {
 export type DailyUnits = {
   apparent_temperature_max?: Maybe<Scalars['String']['output']>;
   apparent_temperature_min?: Maybe<Scalars['String']['output']>;
+  precipitation_sum?: Maybe<Scalars['String']['output']>;
+  rain_sum?: Maybe<Scalars['String']['output']>;
+  showers_sum?: Maybe<Scalars['String']['output']>;
+  snowfall_sum?: Maybe<Scalars['String']['output']>;
+  sunrise?: Maybe<Scalars['String']['output']>;
+  sunset?: Maybe<Scalars['String']['output']>;
   temperature_2m_max?: Maybe<Scalars['String']['output']>;
   temperature_2m_min?: Maybe<Scalars['String']['output']>;
   time?: Maybe<Scalars['String']['output']>;
@@ -78,22 +90,48 @@ export type DailyUnits = {
 
 export type Hourly = {
   apparent_temperature?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  cloudcover?: Maybe<Array<Maybe<Scalars['Int']['output']>>>;
   dewpoint_2m?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  precipitation?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  precipitation_probability?: Maybe<Array<Maybe<Scalars['Int']['output']>>>;
+  pressure_msl?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  rain?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
   relativehumidity_2m?: Maybe<Array<Maybe<Scalars['Int']['output']>>>;
+  showers?: Maybe<Array<Maybe<Scalars['Int']['output']>>>;
+  snow_depth?: Maybe<Array<Maybe<Scalars['Int']['output']>>>;
+  snowfall?: Maybe<Array<Maybe<Scalars['Int']['output']>>>;
+  soil_temperature_0cm?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  surface_pressure?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
   temperature_2m?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
   time?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   uv_index?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
   uv_index_clear_sky?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  weathercode?: Maybe<Array<Maybe<Scalars['Int']['output']>>>;
+  windspeed_10m?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  windspeed_80m?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
 };
 
 export type HourlyUnits = {
   apparent_temperature?: Maybe<Scalars['String']['output']>;
+  cloudcover?: Maybe<Scalars['String']['output']>;
   dewpoint_2m?: Maybe<Scalars['String']['output']>;
+  precipitation?: Maybe<Scalars['String']['output']>;
+  precipitation_probability?: Maybe<Scalars['String']['output']>;
+  pressure_msl?: Maybe<Scalars['String']['output']>;
+  rain?: Maybe<Scalars['String']['output']>;
   relativehumidity_2m?: Maybe<Scalars['String']['output']>;
+  showers?: Maybe<Scalars['String']['output']>;
+  snow_depth?: Maybe<Scalars['String']['output']>;
+  snowfall?: Maybe<Scalars['String']['output']>;
+  soil_temperature_0cm?: Maybe<Scalars['String']['output']>;
+  surface_pressure?: Maybe<Scalars['String']['output']>;
   temperature_2m?: Maybe<Scalars['String']['output']>;
   time?: Maybe<Scalars['String']['output']>;
   uv_index?: Maybe<Scalars['String']['output']>;
   uv_index_clear_sky?: Maybe<Scalars['String']['output']>;
+  weathercode?: Maybe<Scalars['String']['output']>;
+  windspeed_10m?: Maybe<Scalars['String']['output']>;
+  windspeed_80m?: Maybe<Scalars['String']['output']>;
 };
 
 export type Query = {

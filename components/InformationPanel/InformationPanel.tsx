@@ -14,7 +14,7 @@ interface Props {
 const InformationPanel: React.FC<Props> = ({ city, results, lat, long }) => {
     return (
         <div className="bg-gradient-to-br from-[#394F68] to-[#183B7E] text-white p-10">
-            <div className=" pb-5">
+            <div className="pb-5">
                 <h1 className="text-6xl font-bold">{decodeURI(city)}</h1>
                 <p className="text-xs text-gray-400">
                     Long/Lat: {long}, {lat}
@@ -55,7 +55,10 @@ const InformationPanel: React.FC<Props> = ({ city, results, lat, long }) => {
                     <Image
                         src={`https://www.weatherbit.io/static/img/icons/${
                             weatherCodeToString[results.current?.weathercode!]
-                                .icon
+                                ? weatherCodeToString[
+                                      results.current?.weathercode!
+                                  ].icon
+                                : weatherCodeToString[0].icon
                         }.png`}
                         alt="weather"
                         width={75}
@@ -67,11 +70,11 @@ const InformationPanel: React.FC<Props> = ({ city, results, lat, long }) => {
                         </p>
 
                         <p className="text-right font-extralight text-lg">
-                            {
-                                weatherCodeToString[
-                                    results.current?.weathercode!
-                                ].label
-                            }
+                            {weatherCodeToString[results.current?.weathercode!]
+                                ? weatherCodeToString[
+                                      results.current?.weathercode!
+                                  ].label
+                                : weatherCodeToString[0].label}
                         </p>
                     </div>
                 </div>
@@ -84,7 +87,9 @@ const InformationPanel: React.FC<Props> = ({ city, results, lat, long }) => {
                     <div className="flex-1 flex items-center justify-between ">
                         <p className="font-extralight">Sunrise</p>
                         <p className="text-2xl uppercase">
-                            {new Date().toLocaleTimeString("en-GB", {
+                            {new Date(
+                                results.daily?.sunrise![0] as string
+                            ).toLocaleTimeString("en-GB", {
                                 hour: "numeric",
                                 minute: "numeric",
                                 hour12: true,
@@ -97,9 +102,11 @@ const InformationPanel: React.FC<Props> = ({ city, results, lat, long }) => {
                     <MoonIcon className="h-10 w-10 text-gray-400" />
 
                     <div className="flex-1 flex items-center justify-between ">
-                        <p className="font-extralight">Sunrise</p>
+                        <p className="font-extralight">Sunset</p>
                         <p className="text-2xl uppercase">
-                            {new Date().toLocaleTimeString("en-GB", {
+                            {new Date(
+                                results.daily?.sunset![0] as string
+                            ).toLocaleTimeString("en-GB", {
                                 hour: "numeric",
                                 minute: "numeric",
                                 hour12: true,

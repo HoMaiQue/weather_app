@@ -9,5 +9,6 @@ export const weatherCodeToString: {
     2: { icon: "c03d", label: "Partly cloud" },
     3: { icon: "c04d", label: "Overcast" },
     45: { icon: "s05d", label: "Fog" },
-    48: { icon: "s05d", label: "Clear sky" },
+    48: { icon: "s05d", label: "Deposit rime fog" },
+    51: { icon: "d01d", label: "Drizzle" },
 };
